@@ -1,0 +1,27 @@
+@startuml
+abstract class AuthorizationHandler {
+    protected AuthorizationHandler next;
+    +setNext(AuthorizationHandler): AuthorizationHandler
+    +handleRequest(String, String): boolean
+}
+
+class AdminHandler extends AuthorizationHandler {
+    +handleRequest(String, String): boolean
+}
+
+class SearcherHandler extends AuthorizationHandler {
+    +handleRequest(String, String): boolean
+}
+
+class BasicHandler extends AuthorizationHandler {
+    +handleRequest(String, String): boolean
+}
+
+class Main {
+    +main(String[]): void
+}
+
+AuthorizationHandler <|-- AdminHandler
+AuthorizationHandler <|-- SearcherHandler
+AuthorizationHandler <|-- BasicHandler
+@enduml

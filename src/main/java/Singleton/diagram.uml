@@ -1,0 +1,16 @@
+@startuml
+class CandyCrush {
+    - static instance: CandyCrush
+    - scores: Map<String, Integer>
+    - CandyCrush()
+    + static getInstance(): CandyCrush
+    + addScore(login: String, score: Integer): void
+    + getScores(): Map<String, Integer>
+}
+
+class User {
+    + main(args: String[]): void
+}
+
+CandyCrush --> User : uses
+@enduml

@@ -1,0 +1,39 @@
+@startuml
+interface DataProcessing {
+    +process(List<CV>): List<CV>
+}
+
+class LinearRegression implements DataProcessing {
+    +process(List<CV>): List<CV>
+}
+
+class ClassificationTree implements DataProcessing {
+    +process(List<CV>): List<CV>
+}
+
+class KMeansPartitioning implements DataProcessing {
+    +process(List<CV>): List<CV>
+}
+
+class RecruitmentView {
+    -List<CV> cvs
+    -DataProcessing algorithm
+    +setAlgorithm(DataProcessing): void
+    +analyze(): List<CV>
+}
+
+class CV {
+    +String content
+    +boolean isPDF
+}
+
+class User {
+    +main(String[]): void
+}
+
+DataProcessing <|.. LinearRegression
+DataProcessing <|.. ClassificationTree
+DataProcessing <|.. KMeansPartitioning
+RecruitmentView --> DataProcessing
+RecruitmentView --> CV
+@enduml
